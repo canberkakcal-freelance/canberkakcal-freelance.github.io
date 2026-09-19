@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Canberk Akçal</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,6 +12,7 @@
             color: #000000; /* Siyah Yazılar */
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             height: 100vh;
+            height: 100dvh; /* Mobil tarayıcı barları için kesin çözüm */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -26,6 +27,7 @@
             width: 100%;
             font-size: 1.1rem;
             font-weight: 500;
+            z-index: 10;
         }
 
         .nav-bar a {
@@ -41,27 +43,30 @@
         /* Orta Alan: Kayan Yazı Konteyneri */
         .marquee-container {
             width: 100vw;
-            margin-left: -20px; /* Ekranı tam kaplaması için */
+            margin-left: -20px;
             overflow: hidden;
             white-space: nowrap;
             display: flex;
             align-items: center;
         }
 
-        /* Sonsuz Döngü Kayan Yazı Efekti */
+        /* Kesintisiz ve Kusursuz Sonsuz Döngü */
+        .marquee-wrapper {
+            display: inline-flex;
+            animation: marquee 20s linear infinite;
+        }
+
         .marquee-text {
-            font-size: 15vw; /* Ekran boyutuna göre otomatik büyür/küçülür (Responsive) */
+            font-size: 12vw; /* Masaüstü için ideal boyut */
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 15s linear infinite;
+            letter-spacing: -1px;
+            padding-right: 60px; /* Kelimeler arasındaki boşluk */
         }
 
         @keyframes marquee {
             0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); } /* Tam yarıda döngüyü sıfırlar */
         }
 
         /* Alt Alan: Durum Metni */
@@ -69,16 +74,25 @@
             text-align: center;
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             letter-spacing: 0.5px;
+            z-index: 10;
         }
 
-        /* Mobil Ekranlar İçin İnce Ayarlar */
+        /* Mobil Ekranlar İçin Tam Uyum Ayarları */
         @media (max-width: 600px) {
-            body { padding: 15px; }
+            body { padding: 20px 15px; }
             .nav-bar { font-size: 1rem; }
-            .footer-text { font-size: 1.2rem; }
-            .marquee-text { font-size: 22vw; animation-duration: 10s; } /* Mobilde daha büyük ve ideal hızda */
+            .footer-text { font-size: 1.2rem; margin-bottom: 5px; }
+            
+            /* Mobilde yazının ekranı kaplamaması için boyutu küçülttük */
+            .marquee-text { 
+                font-size: 16vw; 
+                padding-right: 40px; 
+            }
+            .marquee-wrapper {
+                animation-duration: 12s; /* Mobilde akış hızı dengesi */
+            }
         }
     </style>
 </head>
@@ -87,12 +101,17 @@
     <!-- Üst Menü Linkleri -->
     <div class="nav-bar">
         <a href="mailto:canberkakcal@gmail.com">✉ Contact</a>
-        <a href="https://www.instagram.com/canberk.akcal/" target="_blank">Instagram</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
     </div>
 
-    <!-- Kayan Canberk Akçal Yazısı -->
+    <!-- Kusursuz Kayan Canberk Akçal Yazısı -->
     <div class="marquee-container">
-        <div class="marquee-text">Canberk Akçal — Canberk Akçal —</div>
+        <div class="marquee-wrapper">
+            <span class="marquee-text">Canberk Akçal</span>
+            <span class="marquee-text">Canberk Akçal</span>
+            <span class="marquee-text">Canberk Akçal</span>
+            <span class="marquee-text">Canberk Akçal</span>
+        </div>
     </div>
 
     <!-- Alt Metin -->
@@ -102,3 +121,4 @@
 
 </body>
 </html>
+
