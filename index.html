@@ -8,11 +8,11 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
-            background-color: #00FF00; /* Canlı Yeşil Arka Plan */
-            color: #000000; /* Siyah Yazılar */
+            background-color: #00FF00; 
+            color: #000000; 
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             height: 100vh;
-            height: 100dvh; /* Mobil tarayıcı barları için kesin çözüm */
+            height: 100dvh; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -20,7 +20,6 @@
             padding: 20px;
         }
 
-        /* Üst Menü (Contact & Instagram) */
         .nav-bar {
             display: flex;
             justify-content: space-between;
@@ -40,7 +39,6 @@
             opacity: 0.6;
         }
 
-        /* Orta Alan: Kayan Yazı Konteyneri */
         .marquee-container {
             width: 100vw;
             margin-left: -20px;
@@ -50,26 +48,24 @@
             align-items: center;
         }
 
-        /* Kesintisiz ve Kusursuz Sonsuz Döngü */
         .marquee-wrapper {
             display: inline-flex;
             animation: marquee 20s linear infinite;
         }
 
         .marquee-text {
-            font-size: 12vw; /* Masaüstü için ideal boyut */
+            font-size: 12vw; 
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -1px;
-            padding-right: 60px; /* Kelimeler arasındaki boşluk */
+            padding-right: 60px; 
         }
 
         @keyframes marquee {
             0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); } /* Tam yarıda döngüyü sıfırlar */
+            100% { transform: translate3d(-50%, 0, 0); } 
         }
 
-        /* Alt Alan: Durum Metni */
         .footer-text {
             text-align: center;
             font-size: 1.5rem;
@@ -79,32 +75,22 @@
             z-index: 10;
         }
 
-        /* Mobil Ekranlar İçin Tam Uyum Ayarları */
         @media (max-width: 600px) {
             body { padding: 20px 15px; }
             .nav-bar { font-size: 1rem; }
             .footer-text { font-size: 1.2rem; margin-bottom: 5px; }
-            
-            /* Mobilde yazının ekranı kaplamaması için boyutu küçülttük */
-            .marquee-text { 
-                font-size: 16vw; 
-                padding-right: 40px; 
-            }
-            .marquee-wrapper {
-                animation-duration: 12s; /* Mobilde akış hızı dengesi */
-            }
+            .marquee-text { font-size: 16vw; padding-right: 40px; }
+            .marquee-wrapper { animation-duration: 12s; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Üst Menü Linkleri -->
     <div class="nav-bar">
         <a href="mailto:canberkakcal@gmail.com">✉ Contact</a>
-        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://www.instagram.com/canberk.akcal/" target="_blank">Instagram</a>
     </div>
 
-    <!-- Kusursuz Kayan Canberk Akçal Yazısı -->
     <div class="marquee-container">
         <div class="marquee-wrapper">
             <span class="marquee-text">Canberk Akçal</span>
@@ -114,11 +100,9 @@
         </div>
     </div>
 
-    <!-- Alt Metin -->
     <div class="footer-text">
         Website In Making...
     </div>
 
 </body>
 </html>
-
